@@ -2,7 +2,7 @@
 
 **Turn your world's history into a fast, searchable website you own.**
 
-**[See the live demo →](https://peppybug.github.io/loreline/)**
+**[See the live demo →](https://loreline-8122.netlify.app/)**
 
 Loreline is for novelists, game masters and game designers who keep the history of an invented world. You write
 plain Markdown files, one per event, person, place or faction. Loreline turns them into a website with:
