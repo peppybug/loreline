@@ -1,0 +1,40 @@
+{
+  "name": "loreline",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Turn your world's history into a fast, searchable website you own.",
+  "scripts": {
+    "dev": "next dev",
+    "check": "tsx scripts/check.ts",
+    "build": "npm run check && next build",
+    "preview": "npx serve@14.2.4 out",
+    "new": "tsx scripts/new.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@fontsource-variable/cormorant": "^5.2.0",
+    "@fontsource-variable/figtree": "^5.3.0",
+    "@fontsource-variable/newsreader": "^5.3.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^15.0.12",
+    "minisearch": "^7.1.1",
+    "next": "15.5.29",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.29",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  }
+}

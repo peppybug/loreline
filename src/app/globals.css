@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+/*
+ * Loreline theme
+ * ---------------------------------------------------------------
+ * Change the accent colour in world/world.yml (`accent`). Everything else
+ * can be adjusted here: these variables drive every colour on the site.
+ */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --paper: #f5f2eb;
+  --surface: #fffdf8;
+  --sunken: #ebe6db;
+  --ink: #1d1a16;
+  --ink-2: #433d34;
+  --muted: #6a6256;
+  --line: #ddd5c6;
+  --line-strong: #b1a690;
+  --thread: var(--accent-light, #9c3b22);
+  --thread-soft: color-mix(in srgb, var(--thread) 12%, var(--surface));
+  --focus: #1f5fbf;
+  --mark: #f6e3a1;
+  --shadow: 0 1px 2px rgb(29 26 22 / 0.06), 0 8px 26px -14px rgb(29 26 22 / 0.22);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #13120f;
+    --surface: #1b1915;
+    --sunken: #0e0d0b;
+    --ink: #eee9df;
+    --ink-2: #cdc6b8;
+    --muted: #9f978a;
+    --line: #2f2b25;
+    --line-strong: #544d42;
+    --thread: var(--accent-dark, #e07a5c);
+    --focus: #7aa7ff;
+    --mark: #5b4a12;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 30px -14px rgb(0 0 0 / 0.7);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #13120f;
+  --surface: #1b1915;
+  --sunken: #0e0d0b;
+  --ink: #eee9df;
+  --ink-2: #cdc6b8;
+  --muted: #9f978a;
+  --line: #2f2b25;
+  --line-strong: #544d42;
+  --thread: var(--accent-dark, #e07a5c);
+  --focus: #7aa7ff;
+  --mark: #5b4a12;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 10px 30px -14px rgb(0 0 0 / 0.7);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-thread: var(--thread);
+  --color-thread-soft: var(--thread-soft);
+  --color-focus: var(--focus);
+
+  --font-display: "Cormorant Variable", "Cormorant", Georgia, serif;
+  --font-serif: "Newsreader Variable", "Newsreader", Georgia, serif;
+  --font-sans: "Figtree Variable", "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.45;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.3125rem;
+  --text-lg--line-height: 1.45;
+  --text-xl: 1.875rem;
+  --text-xl--line-height: 1.15;
+  --text-2xl: 2.75rem;
+  --text-2xl--line-height: 1.05;
+  --text-3xl: 4rem;
+  --text-3xl--line-height: 1;
+
+  --radius-xs: 2px;
+  --radius-sm: 6px;
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --shadow-lift: var(--shadow);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--thread-soft);
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  mark {
+    background: var(--mark);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 0.1em;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 32px;
+    }
+  }
+  .eyebrow {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  /* Long-form text written in your Markdown files */
+  .prose-lore {
+    font-family: var(--font-serif);
+    font-size: 1.1875rem;
+    line-height: 1.7;
+    max-width: 66ch;
+  }
+  .prose-lore > * + * {
+    margin-top: 1em;
+  }
+  .prose-lore h2 {
+    font-size: 1.75rem;
+    margin-top: 1.6em;
+    line-height: 1.2;
+  }
+  .prose-lore h3 {
+    font-size: 1.375rem;
+    margin-top: 1.4em;
+  }
+  .prose-lore ul {
+    list-style: disc;
+    padding-left: 1.3em;
+  }
+  .prose-lore ol {
+    list-style: decimal;
+    padding-left: 1.3em;
+  }
+  .prose-lore blockquote {
+    border-left: 3px solid var(--line-strong);
+    padding-left: 1em;
+    color: var(--ink-2);
+    font-style: italic;
+  }
+  .prose-lore a,
+  .link {
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 160ms var(--ease-out-quart);
+  }
+  .prose-lore a:hover,
+  .link:hover {
+    text-decoration-color: var(--thread);
+  }
+  .prose-lore a.wikilink {
+    color: var(--ink);
+    text-decoration-color: color-mix(in srgb, var(--thread) 55%, transparent);
+  }
+  .prose-lore .wikilink-missing {
+    border-bottom: 1px dashed var(--line-strong);
+    cursor: help;
+  }
+  .card-link {
+    transition:
+      border-color 180ms var(--ease-out-quart),
+      box-shadow 180ms var(--ease-out-quart);
+  }
+  .card-link:hover {
+    border-color: var(--line-strong);
+    box-shadow: var(--shadow);
+  }
+  .card-link:hover .card-title {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--thread);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

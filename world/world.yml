@@ -1,0 +1,83 @@
+# ------------------------------------------------------------------
+#  Your world's settings. Everything else lives in the folders next
+#  to this file: events/, people/, places/ and factions/.
+# ------------------------------------------------------------------
+
+name: The Drowned Crown
+tagline: A chronicle of the kingdom the sea took, and the islands that rose from it.
+description: The history of Vael and the Saltreach Isles, from the first crowns to the Ember Years.
+author: The Archivists of Merrow
+
+# Shown on the home page. Markdown and [[wiki links]] work here.
+intro: |
+  Six hundred years before the Tide, the kings of Vael ruled the whole northern coast from behind a wall of
+  stone. Then, on one night in Seedtide, the sea came over that wall and did not leave. What survived of the
+  kingdom fled to a scatter of islands, learned to live on the water, and spent four centuries arguing about
+  who should wear the crown that went down with [[Queen Isembard]].
+
+  Start with [[The Night of the Tide]], or follow the thread from the [[Salt Famine]] to the
+  [[Crowning at Merrow]].
+
+# Main colour for links, buttons and cause-and-effect lines.
+accent: "#9c3b22"
+
+calendar:
+  after: AT        # years from the Tide onwards: "412 AT"
+  before: BT       # years before it: "88 BT"
+  position: suffix # "suffix" gives "412 AT", "prefix" gives "AT 412"
+  months: [Frostwane, Thaw, Seedtide, Greening, Highsun, Emberfall, Harvest, Reaping, Mistmoot, Longnight]
+
+eras:
+  - slug: age-of-crowns
+    name: The Age of Crowns
+    start: "-620"
+    end: "-1"
+    summary: Vael rules the northern coast behind the Long Wall.
+  - slug: the-drowning
+    name: The Drowning
+    start: "1"
+    end: "40"
+    summary: The sea takes Vael. Survivors scatter to the Saltreach Isles.
+  - slug: age-of-tides
+    name: The Age of Tides
+    start: "41"
+    end: "380"
+    summary: Island cities grow rich on the sea lanes and fight over the lost crown.
+  - slug: ember-years
+    name: The Ember Years
+    start: "381"
+    summary: The mountain on Cinder Isle wakes, and the old quarrels catch fire.
+
+regions:
+  - slug: vaelmark
+    name: The Vaelmark
+    summary: The old northern kingdom, now mostly under the sea.
+  - slug: saltreach
+    name: The Saltreach Isles
+    summary: The archipelago where the survivors of Vael rebuilt.
+  - slug: emberwild
+    name: The Emberwild
+    summary: Eastern highlands of black stone and hot springs, home of the Ember Synod.
+  - slug: southern-deeps
+    name: The Southern Deeps
+    summary: Open water, reefs and the long sea lanes to the south.
+
+categories:
+  - { slug: war, name: War }
+  - { slug: politics, name: Politics }
+  - { slug: faith, name: Faith }
+  - { slug: discovery, name: Discovery }
+  - { slug: catastrophe, name: Catastrophe }
+  - { slug: culture, name: Culture }
+
+# Optional. Put your map in public/ and give each place `map: [x, y]` (percent from left, from top).
+map:
+  image: map.svg
+  width: 1000
+  height: 700
+  alt: Map of the Vaelmark, the Saltreach Isles and the Emberwild
+
+# The event the Connections page opens on.
+start_here: night-of-the-tide
+
+footer: Text and world © The Archivists of Merrow. This is a demo world that ships with Loreline.
