@@ -18,6 +18,8 @@ concurrency:
 
 jobs:
   build:
+    # The original Loreline repository deploys its demo on Netlify instead.
+    if: github.repository != 'peppybug/loreline'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -174,7 +174,15 @@ with `npm run preview`.
 Every push publishes the site at `https://<you>.github.io/<repository>/`. The included workflow
 (`.github/workflows/deploy.yml`) handles the sub-folder address for you.
 
-### Netlify or Cloudflare Pages
+### Netlify (free, works with private repositories)
+
+1. Put this folder in a GitHub repository (private is fine).
+2. On netlify.com choose **Add new site → Import an existing project** and pick the repository.
+3. Click **Deploy**. The included `netlify.toml` sets everything up.
+
+Every push publishes the site again.
+
+### Cloudflare Pages
 
 Set the build command to `npm run build` and the output directory to `out`.
 
