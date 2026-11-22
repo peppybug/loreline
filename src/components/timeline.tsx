@@ -305,9 +305,19 @@ export function Timeline({
                   {eras.map((er, i) => {
                     const l = x(Math.max(MIN, er.startKey));
                     const r = x(Math.min(MAX, er.endKey ?? MAX));
+                    const w = Math.max(0, r - l);
+                    // Show the name only when at least a few letters fit; the full name is always in the tooltip.
+                    const showName = w >= 48;
                     return (
-                      <Link key={er.slug} href={`/era/${er.slug}/`} className={`absolute top-0 flex h-full items-center overflow-hidden whitespace-nowrap border-l border-line px-2 text-xs font-semibold text-ink-2 hover:text-ink ${i % 2 ? "bg-sunken/70" : "bg-thread-soft"}`} style={{ left: l, width: Math.max(0, r - l) }}>
-                        <span className="sticky" style={{ left: LABEL_COL + 8 }}>{er.name}</span>
+                      <Link
+                        key={er.slug}
+                        href={`/era/${er.slug}/`}
+                        title={er.name}
+                        aria-label={er.name}
+                        className={`absolute top-0 flex h-full items-center border-l border-line px-2 text-xs font-semibold text-ink-2 hover:text-ink`}
+                        style={{ left: l, width: w, background: `color-mix(in srgb, var(--thread) ${i % 2 ? 20 : 9}%, var(--surface))` }}
+                      >
+                        {showName ? <span className="min-w-0 truncate">{er.name}</span> : null}
                       </Link>
                     );
                   })}
